@@ -1,0 +1,115 @@
+@media all and (min-width: 961px) {
+
+  main {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 24% 19% 19% 19% 19%;
+    grid-template-rows: 14% 29% 36% 21%
+  }
+
+  #a {
+    grid-row: 1;
+    grid-column: 1 / span 5;
+    background-color: azure;
+  }
+
+  #b {
+    grid-row: 2 / span 3;
+    grid-column: 1;
+    background-color: sandybrown;
+  }
+
+  .c {
+    grid-row: 2;
+    grid-column: 4 / 6;
+    background-color: mediumpurple;
+  }
+
+  #c1 {
+    grid-row: 2;
+    grid-column: 2 / span 2;
+    background-color: aliceblue;
+  }
+  #quarterbox1 {
+    grid-row: 3;
+    grid-column: 2;
+    background-color: forestgreen;
+  }
+  #quarterbox2 {
+    background-color: purple;
+    color: whitesmoke;
+  }
+  #quarterbox3 {
+    background-color: darkorange;
+  }
+  #quarterbox4 {
+    background-color: slategray;
+  }
+  #end {
+    grid-row: 4;
+    grid-column: 2 / span 4;
+    background-color: lightcoral;
+  }
+}
+
+  /* Below here be my attempt at css Flow, to no avail because of "b". boo */
+  /* main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  div {
+    border: 1px solid lightseagreen;
+    background-color: limegreen;
+  }
+
+  #a {
+    width: 100vw;
+    height: 200px;
+    background-color: lightslategray;
+  }
+
+  #b {
+    width: 75vw;
+    height: 350px;
+    background-color: mediumpurple;
+  }
+
+  #c1 {
+    width: 25vw;
+    background-color: magenta;
+  }
+
+  .c {
+    background-color: lightgrey;
+    flex-grow: 2;
+  }
+
+  #quarterbox1 {
+    background-color: mediumturquoise;
+    flex-grow: 1;
+    height: 180px;
+  }
+
+  #quarterbox2 {
+    background-color: olivedrab;
+    flex-grow: 1;
+  }
+  
+  #quarterbox3 {
+    flex-grow: 1;
+    background-color: peru;
+  }
+
+  #quarterbox4 {
+    background-color: olivedrab;
+    width: 300px;
+  }
+
+  #end {
+    flex-basis: 100%;
+    height: 150px;
+    background-color: mediumaquamarine;
+  }
+} */
