@@ -116,10 +116,11 @@ function collectSearchResults(request, response) {
   superagent.get(url)
     .then(results => {
       let bookArray = results.body.items;
+      console.log("The bookArray" + results.body.items[0]);
       const finalBookArray = bookArray.map(book => {
         return new Book(book.volumeInfo);
       });
-      // console.log(finalBookArray);
+      console.log("Final book array" + finalBookArray);
       response.render('pages/searches/show.ejs', {searchResults: finalBookArray});
     }).catch((error) => {
       console.log('ERROR', error);
@@ -141,9 +142,9 @@ function renderSingleBook(request, response){
 }
 
 function Book(obj) {
-  this.image = obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail : 'https://i.imgur.com/JSLVHEL.jpg';
+  // this.image = obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail : 'https://i.imgur.com/JSLVHEL.jpg';
   this.title = obj.title ? obj.title : 'no title available';
   this.authors = obj.authors[0] ? obj.authors[0] : 'no author available'; // because authors is an array!
   this.description = obj.description ? obj.description : 'no description available';
-  this.isbn = obj.industryIdentifiers[1].identifier ? obj.industryIdentifiers[1].identifier : 'no ISBN available'; // getting the isbn type ISNB_10 from the api options. TODO: make a function to properly return this for both ISBN types.
+  // this.isbn = obj.industryIdentifiers[1].identifier ? obj.industryIdentifiers[1].identifier : 'no ISBN available'; // getting the isbn type ISNB_10 from the api options. TODO: make a function to properly return this for both ISBN types.
 }
