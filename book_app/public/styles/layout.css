@@ -1,0 +1,57 @@
+@media all and (max-width: 800px){
+
+  main, #updatebutton {
+    width: 800px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  div, input {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    border: 3px solid black;
+    margin: 5px 0px 5px 0px;
+    padding: 5px 0px 5px 0px;
+    margin: 5px 0px 5px 0px;
+    align-content: center;
+  }
+
+}
+
+@media all and (min-width:801px) {
+
+  * {
+    background-color: cornsilk;
+  }
+
+  main {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  div {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+    border: 3px solid black;
+    margin: 5px 0px 5px 0px;
+    padding: 5px 0px 5px 0px;
+    margin: 5px 0px 5px 0px;
+    align-content: center;
+  }
+
+  
+}

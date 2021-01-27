@@ -1,0 +1,34 @@
+{
+  "name": "book_app",
+  "version": "1.0.0",
+  "description": "Making an app with express, dotenv, ejs, superagent, pg, and getting from google books API for books to display.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PVOBrien/book_app.git"
+  },
+  "keywords": [
+    "books",
+    "Code",
+    "Fellows",
+    "301",
+    "lab"
+  ],
+  "author": "Paul O'Brien & Claudio Bailon-Schubert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PVOBrien/book_app/issues"
+  },
+  "homepage": "https://github.com/PVOBrien/book_app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^8.3.0",
+    "superagent": "^5.3.1"
+  }
+}

@@ -1,0 +1,16 @@
+<% potato.forEach(bookObj => { %>
+<div id="updatebox">
+  <li id="image"><img src="<%= bookObj.image %>" /></li>
+  <li id="title" class="centeredWords"><%= bookObj.title %></li>
+  <li id="authors"><%= bookObj.authors %></li>
+  <li id="description"><%= bookObj.description %></li>
+  <li id="isbn"><%= bookObj.isbn %></li>
+  <a href="/books/<%= bookObj.id %>">Book Details</a>
+</div>
+<!-- <div> -->
+  <!-- <form action="/books/<%= bookObj.id %>" method="get">
+    <a href="/books/:<%= bookObj.id %>"><button type = "submit">Update Details</button></a>
+    <a href="/books/:id"><button>Delete Books</button></a>
+  </form> --> 
+<!-- </div> -->
+<% }) %>

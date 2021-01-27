@@ -1,0 +1,21 @@
+* {
+    background-color: lightgray;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+img {
+    max-width: 600px;
+    max-height: 200px;
+}
+
+.centeredWords{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    list-style-type: none;
+}

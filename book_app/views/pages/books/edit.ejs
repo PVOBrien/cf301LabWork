@@ -1,0 +1,21 @@
+<% potato.forEach(bookObj => { %>
+    <div id="updatebook">
+        <form id="updatebutton" action="/books/<%= bookObj.id %>?_method=PUT" method="post">  <!--it says post because html only allow get and post, so something else needs to make the method be PUT" -->
+            <input id="image" name="image" value="<%= bookObj.image %>" placeholder=<%= bookObj.image %> >
+            <input id="title" name="title" value="<%= bookObj.title %>" class="centeredWords" placeholder="<%= bookObj.title %>">
+            <input id="authors" name="authors" value="<%= bookObj.authors %>" placeholder="<%= bookObj.authors %>">
+            <textarea id="description" name="description" value="<%= bookObj.description %>" placeholder="<%= bookObj.description %>" cols="50" rows="5"><%= bookObj.description %></textarea>
+            <!-- text area requres that the body be the content for it to be edited, else placeholder is really just like a ghost wwwoooOOOOooooooOO. -->
+            <input id="isbn" name="isbn" value="<%= bookObj.isbn %>" placeholder="<%= bookObj.isbn %>">
+            <!-- <a href="/books/<%= bookObj.id %>"></a>Book Details</a> -->
+            <button type = "submit">Update Details</button>
+        </form>
+        <form id="deletebutton" action="/books/<%= bookObj.id %>?_method=DELETE" method="post">
+            <button type = "submit">Delete Books</button>
+        </form>
+    </div>
+    <button class="updatebutton">UPDATE DETAILS</button>
+    <!-- <form action="/books/<%= bookObj.id %>" method="get">
+    </form> -->
+    <% }) %>
+    
