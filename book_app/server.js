@@ -116,9 +116,17 @@ function collectSearchResults(request, response) {
   superagent.get(url)
     .then(results => {
       let bookArray = results.body.items;
-      console.log("The bookArray" + results.body.items[0]);
+      console.log("The bookArray: " + results.body.items[0].volumeInfo.imageLinks.thumbnail);
+      let count = 0;
       const finalBookArray = bookArray.map(book => {
-        return new Book(book.volumeInfo);
+        let theImage = 'https://i.imgur.com/JSLVHEL.jpg';
+        if (results.body.items[count].volumeInfo.imageLinks) {
+          theImage = results.body.items[count].volumeInfo.imageLinks.thumbnail ? results.body.items[count].volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/JSLVHEL.jpg';
+        }
+        count++;
+        console.log("working over the bookarray: " + theImage);
+        // console.log("working over the bookarray: " + results.body.items[1].volumeInfo.imageLinks.thumbnail);
+        return new Book(book.volumeInfo, theImage);
       });
       console.log("Final book array" + finalBookArray);
       response.render('pages/searches/show.ejs', {searchResults: finalBookArray});
@@ -141,10 +149,13 @@ function renderSingleBook(request, response){
     })
 }
 
-function Book(obj) {
-  // this.image = obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail : 'https://i.imgur.com/JSLVHEL.jpg';
+function Book(obj, passedImg) {
+  this.image = passedImg; // 
+  this.language = obj.language ? obj.language : 'no language, nuh-uh';
   this.title = obj.title ? obj.title : 'no title available';
   this.authors = obj.authors[0] ? obj.authors[0] : 'no author available'; // because authors is an array!
   this.description = obj.description ? obj.description : 'no description available';
-  // this.isbn = obj.industryIdentifiers[1].identifier ? obj.industryIdentifiers[1].identifier : 'no ISBN available'; // getting the isbn type ISNB_10 from the api options. TODO: make a function to properly return this for both ISBN types.
+  this.isbn = obj.industryIdentifiers[0].identifier ? obj.industryIdentifiers[0].identifier : 'no ISBN available'; // getting the isbn type ISNB_10 from the api options. TODO: make a function to properly return this for both ISBN types.
+  // this.image = obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail : 'NONE';
+  console.log("The book's isbn: " + this.isbn);
 }
