@@ -2,13 +2,15 @@
 
 // RESOURCES+LIBRARIES
 
+// to provision to a heroku postgresql database instance: https://stackoverflow.com/questions/20508898/how-can-i-import-a-sql-file-into-my-heroku-postgres-database
+
 const express = require('express');
 const superagent = require('superagent');
 // const { request, response } = require('express');
 const pg = require('pg');
 require ('dotenv').config();
 require ('ejs');
-const methodOverride = require('method-override'); //npm i -S methodOverride
+const methodOverride = require('method-override'); //npm i -S method-override
 
 // GLOBAL VARS + INITIAL SETUP
 
@@ -78,7 +80,7 @@ function addFaveBooks(request,response) {
   let sql = `INSERT INTO books (image, title, authors, description, isbn) VALUES ($1, $2, $3, $4, $5) RETURNING id;`;
   let safeValues = [image, title, authors, description, isbn];
 
-  client.query(sql, safeValues)
+  client.query(sql, safeValues) 
     .then(results => {
       let id = results.rows[0].id;
       response.status(200).redirect(`/books/${id}`);
